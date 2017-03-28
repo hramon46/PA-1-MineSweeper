@@ -15,7 +15,7 @@ public class MyPanel extends JPanel {
 	final int MINE_COLUMNS = 9;
 	final int MINE_ROWS = 9;
 	final int TOTAL_MINES = 10;
-	public int selectedSquares = 0;  //Counts the gray squares
+	public int selectedSquares = 81 - TOTAL_MINES;  //Counts the gray squares
 	private boolean endGame = false;
 
 	private boolean[][] Blank = new boolean[MINE_COLUMNS][MINE_ROWS];
@@ -194,11 +194,26 @@ public class MyPanel extends JPanel {
 
 	}
 	public boolean winGame(){ //Compares if maximum gray squares have been discovered
-		if(selectedSquares == 71){
-			return true;
+		public boolean winGame(){ //Compares if maximum gray squares have been discovered
+			int counter = 0;
+			boolean win = false;
+			for (int i = 0; i < TOTAL_COLUMNS; i++){
+				for (int j = 0; j < TOTAL_ROWS; j++){
+
+					if (colorArray[i][j].equals(Color.LIGHT_GRAY)){
+						counter++;
+					}
+
+				}
+			}
+			if (counter == 71){
+				win = true;
+			}
+			else{
+				counter = 0;
+			}
+			return win;
 		}
-		else return false;
-	}
 	public boolean mineCompare(int x, int y){ //compares clicked position to mine position
 		for(int i = 0; i < TOTAL_MINES; i++){
 			if(x == minesPosition[i][0] && y == minesPosition[i][1]){
