@@ -15,7 +15,7 @@ public class MyPanel extends JPanel {
 	final int MINE_COLUMNS = 9;
 	final int MINE_ROWS = 9;
 	final int TOTAL_MINES = 10;
-	public int selectedSquares = - TOTAL_MINES;  //Counts the gray squares
+	public int selectedSquares = 0;  //Counts the gray squares
 	private boolean endGame = false;
 
 	private boolean[][] Blank = new boolean[MINE_COLUMNS][MINE_ROWS];
